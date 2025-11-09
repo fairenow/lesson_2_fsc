@@ -1,0 +1,30 @@
+{
+  "name": "kingdom-kidz-lesson-2",
+  "version": "1.0.0",
+  "description": "Interactive Kingdom Kidz Lesson 2: The Best Creation of All - Teaching children they are special to God with Supabase integration",
+  "main": "lesson2_kingdom_kidz.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "preview": "open lesson2_kingdom_kidz.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/kingdom-kidz-lesson-2.git"
+  },
+  "keywords": [
+    "kingdom-kidz",
+    "fresh-start-church",
+    "sunday-school",
+    "interactive-lesson",
+    "supabase",
+    "christian-education",
+    "children-ministry",
+    "christmas-play"
+  ],
+  "author": "Fresh Start Church - Kingdom Kidz Ministry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/kingdom-kidz-lesson-2/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/kingdom-kidz-lesson-2#readme"
+}
