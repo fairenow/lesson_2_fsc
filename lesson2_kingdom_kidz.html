@@ -765,6 +765,11 @@
                     <input type="text" class="tile-input" id="student-name" placeholder="Enter your first name (this helps your teacher know who shared these great ideas!)" style="min-height: 50px;" oninput="localStorage.setItem('student-name', this.value)">
                 </div>
                 
+                <div class="activity-tile" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-color: #f59e0b;">
+                    <h3>How old are you? (Optional)</h3>
+                    <input type="number" class="tile-input" id="student-age" placeholder="Enter your age" min="1" max="18" style="min-height: 50px;" oninput="localStorage.setItem('student-age', this.value)">
+                </div>
+                
                 <div class="activity-tile">
                     <h3>What makes you feel good?</h3>
                     <textarea class="tile-input" id="feel-good" placeholder="Share what makes you happy and feel good... (like spending time with family, playing with friends, helping others...)" oninput="updateCharCount('feel-good', 'count-1')"></textarea>
@@ -899,9 +904,11 @@
         // Submit responses function - NOW SAVES TO SUPABASE!
         async function submitResponses() {
             const studentName = document.getElementById('student-name')?.value?.trim() || null;
+            const studentAge = document.getElementById('student-age')?.value?.trim() || null;
             
             const responses = {
                 student_name: studentName,
+                student_age: studentAge ? parseInt(studentAge) : null,
                 feel_good: document.getElementById('feel-good')?.value?.trim() || null,
                 feel_bad: document.getElementById('feel-bad')?.value?.trim() || null,
                 gods_love: document.getElementById('gods-love')?.value?.trim() || null,
@@ -1121,12 +1128,20 @@
                 }, 500);
             }, 5000);
         
-                        // Load saved student name
+                        // Load saved student name and age
             const studentNameField = document.getElementById('student-name');
             if (studentNameField) {
                 const savedName = localStorage.getItem('student-name');
                 if (savedName) {
                     studentNameField.value = savedName;
+                }
+            }
+            
+            const studentAgeField = document.getElementById('student-age');
+            if (studentAgeField) {
+                const savedAge = localStorage.getItem('student-age');
+                if (savedAge) {
+                    studentAgeField.value = savedAge;
                 }
             }
             
@@ -1202,7 +1217,7 @@
         }
         
         function clearAllDraftsWithoutConfirm() {
-            const fields = ['student-name', 'feel-good', 'feel-bad', 'gods-love', 'unique', 
+            const fields = ['student-name', 'student-age', 'feel-good', 'feel-bad', 'gods-love', 'unique', 
                           'serve-god', 'jesus-special', 'play-part', 'play-role', 'share-message'];
             
             fields.forEach(fieldId => {
