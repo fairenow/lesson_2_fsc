@@ -1,20 +1,10 @@
 {
   "version": 2,
   "name": "kingdom-kidz-lesson-2",
-  "builds": [
+  "rewrites": [
     {
-      "src": "lesson2_kingdom_kidz.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/lesson2_kingdom_kidz.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/",
+      "destination": "/index.html"
     }
   ],
   "headers": [
